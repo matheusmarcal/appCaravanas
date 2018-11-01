@@ -25,6 +25,9 @@
     <!-- Morris Chart Css-->
     <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css -->
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -88,13 +91,13 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Perfil</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Amigos</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">directions_bus</i>Caravanas</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Favoritos</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sair</a></li>
                         </ul>
                     </div>
                 </div>
@@ -110,9 +113,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a onclick="irPara('caravana')" class="menu-toggle">
                             <i class="material-icons">add_box</i>
-                            <span>Inserir Caravana</span>
+                            <span>Cadastrar Caravana</span>
                         </a>
                     </li>
                     <li>
@@ -186,6 +189,7 @@
                     </div>
                 </div>
             </div>
+
 			<!-- Detalhes -->
 			<div id="div_detalhes" class="row clearfix" style="display:none;">
 				<b style="font-size:25px; margin-bottom:25px;">BGS</b>
@@ -196,7 +200,211 @@
 				<br><br>
 				<button type="button" onclick="irPara('home')" class="btn btn-default waves-effect">Voltar</button>
 			</div>
-		</div>
+
+      <!-- Basic Example | Horizontal Layout -->
+      <div class="row clearfix">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="card">
+                  <div class="header">
+                      <h2>BASIC EXAMPLE - HORIZONTAL LAYOUT</h2>
+                      <ul class="header-dropdown m-r--5">
+                          <li class="dropdown">
+                              <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                  <i class="material-icons">more_vert</i>
+                              </a>
+                              <ul class="dropdown-menu pull-right">
+                                  <li><a href="javascript:void(0);">Action</a></li>
+                                  <li><a href="javascript:void(0);">Another action</a></li>
+                                  <li><a href="javascript:void(0);">Something else here</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="body">
+                      <div id="wizard_horizontal">
+                          <h2>First Step</h2>
+                          <section>
+                              <p>
+                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nulla nunc. Maecenas
+                                  arcu sem, hendrerit a tempor quis, sagittis accumsan tellus. In hac habitasse platea
+                                  dictumst. Donec a semper dui. Nunc eget quam libero. Nam at felis metus. Nam tellus
+                                  dolor, tristique ac tempus nec, iaculis quis nisi.
+                              </p>
+                          </section>
+
+                          <h2>Second Step</h2>
+                          <section>
+                              <p>
+                                  Donec mi sapien, hendrerit nec egestas a, rutrum vitae dolor. Nullam venenatis diam ac
+                                  ligula elementum pellentesque. In lobortis sollicitudin felis non eleifend. Morbi
+                                  tristique tellus est, sed tempor elit. Morbi varius, nulla quis condimentum dictum,
+                                  nisi elit condimentum magna, nec venenatis urna quam in nisi. Integer hendrerit sapien
+                                  a diam adipiscing consectetur. In euismod augue ullamcorper leo dignissim quis elementum
+                                  arcu porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum leo
+                                  velit, blandit ac tempor nec, ultrices id diam. Donec metus lacus, rhoncus sagittis
+                                  iaculis nec, malesuada a diam. Donec non pulvinar urna. Aliquam id velit lacus.
+                              </p>
+                          </section>
+
+                          <h2>Third Step</h2>
+                          <section>
+                              <p>
+                                  Morbi ornare tellus at elit ultrices id dignissim lorem elementum. Sed eget nisl at justo
+                                  condimentum dapibus. Fusce eros justo, pellentesque non euismod ac, rutrum sed quam.
+                                  Ut non mi tortor. Vestibulum eleifend varius ullamcorper. Aliquam erat volutpat.
+                                  Donec diam massa, porta vel dictum sit amet, iaculis ac massa. Sed elementum dui
+                                  commodo lectus sollicitudin in auctor mauris venenatis.
+                              </p>
+                          </section>
+
+                          <h2>Forth Step</h2>
+                          <section>
+                              <p>
+                                  Quisque at sem turpis, id sagittis diam. Suspendisse malesuada eros posuere mauris vehicula
+                                  vulputate. Aliquam sed sem tortor. Quisque sed felis ut mauris feugiat iaculis nec
+                                  ac lectus. Sed consequat vestibulum purus, imperdiet varius est pellentesque vitae.
+                                  Suspendisse consequat cursus eros, vitae tempus enim euismod non. Nullam ut commodo
+                                  tortor.
+                              </p>
+                          </section>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- #END# Basic Example | Horizontal Layout -->
+
+      <!-- Masked Input -->
+      <div id="div_caravana" class="row clearfix" style="display:none;">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="card">
+                  <div class="header">
+                      <h2>CADASTRO DE CARAVANA</h2>
+                  </div>
+
+                  <div class="body">
+                    <div id="wizard_horizontal">
+                      <h2>Primeiro Passo</h2>
+                      <section>
+                      <div class="demo-masked-input">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtTitulo" type="text" class="form-control" placeholder="Nome da Caravana">
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtDescricao" type="text" class="form-control" placeholder="Descrição da Caravana">
+                                </div>
+                            </div>
+                        </div>
+                      </section>
+
+                            <h2>CADASTRAR VEICULO NA CARAVANA</h2>
+                        <section>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input id="txtDescVeiculo" type="text" class="form-control" placeholder="Descrição do Veiculo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <p>
+                                    <b>Basic</b>
+                                </p>
+                                <select class="form-control show-tick">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+
+                            </div>
+                              <div class="col-md-3">
+                                  <b>Data</b>
+                                  <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="material-icons">date_range</i>
+                                      </span>
+                                      <div class="form-line">
+                                          <input id="txtDataSaida" type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-md-3">
+                                  <b>Valor por pessoa</b>
+                                  <div class="input-group">
+                                      <span class="input-group-addon">
+                                          <i class="material-icons">attach_money</i>
+                                      </span>
+                                      <div class="form-line">
+                                          <input id="txtValorPorPessoa" type="text" class="form-control money-dollar" placeholder="Ex: 99,99 $">
+                                      </div>
+                                  </div>
+                              </div>
+                      </section>
+                      <h2>ENDEREÇO</h2>
+                      <section>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtCep" type="text" class="form-control" placeholder="CEP">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtEndereco" type="text" class="form-control" placeholder="Endereço">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtNumero" type="text" class="form-control" placeholder="Número">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtBairro" type="text" class="form-control" placeholder="Bairro">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtCidade" type="text" class="form-control" placeholder="Cidade">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtUf" type="text" class="form-control" placeholder="UF">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="txtComplemento" type="text" class="form-control" placeholder="Complemento">
+                                </div>
+                            </div>
+                        </div>
+                        </section>
+                      </div>
+                  </div>
+                </div>
+              </div>
+           </div>
+      <!-- #END# Masked Input -->
 
     </section>
 
@@ -218,8 +426,35 @@
     <!-- Jquery CountTo Plugin Js -->
     <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
+    <!-- JQuery Steps Plugin Js -->
+    <script src="plugins/jquery-steps/jquery.steps.js"></script>
+
     <!-- Sparkline Chart Plugin Js -->
     <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Jquery Validation Plugin Css -->
+    <script src="plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="plugins/jquery-steps/jquery.steps.js"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
