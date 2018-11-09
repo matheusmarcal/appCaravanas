@@ -25,6 +25,9 @@
     <!-- Morris Chart Css-->
     <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css -->
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
 
@@ -88,13 +91,13 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Perfil</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Amigos</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">directions_bus</i>Caravanas</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Favoritos</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sair</a></li>
                         </ul>
                     </div>
                 </div>
@@ -110,9 +113,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                        <a onclick="irPara('caravana')" class="menu-toggle">
                             <i class="material-icons">add_box</i>
-                            <span>Inserir Caravana</span>
+                            <span>Cadastrar Caravana</span>
                         </a>
                     </li>
                     <li>
@@ -156,7 +159,7 @@
             <!-- Home -->
 			<div id="div_home" class="row clearfix">
 				<b style="font-size:25px; margin-bottom:25px;">Eventos em destaques</b>
-                <div style="margin-top:15px;">
+                <div id="divEventos" style="margin-top:15px;">
                     <div class="card">
                         <div class="body">
 						<b style="font-size:20px;">BGS</b><br>
@@ -186,17 +189,159 @@
                     </div>
                 </div>
             </div>
+
 			<!-- Detalhes -->
 			<div id="div_detalhes" class="row clearfix" style="display:none;">
-				<b style="font-size:25px; margin-bottom:25px;">BGS</b>
-				<p>15/11/2018</p>
+				<b id="detNome" style="font-size:25px; margin-bottom:25px;">BGS</b>
+				<p><b>Data</b>: <span id="detData">15/11/2018</span></p>
 				<p><b>Partida</b>: 07:00 - Parque Santos Dumont, São José dos Campos - SP </p>
 				<p><b>3 Caravanas - 90 lugares disponíveis</b></p>
 				<p><b>Valor:</b> R$30,00</p>
 				<br><br>
 				<button type="button" onclick="irPara('home')" class="btn btn-default waves-effect">Voltar</button>
 			</div>
-		</div>
+     
+      <!-- Masked Input -->
+      <div id="div_caravana" class="row clearfix" style="display:none;">
+          <b style="font-size:25px; margin-bottom:25px;">Cadastro Caravana</b>
+		  <div style="margin-top:15px;">                    
+					<div class="card">
+                        <div class="body">
+                            <div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="true">Passo 1</a></li>
+                                    <li role="presentation" class=""><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="false">Passo 2</a></li>
+                                    <li role="presentation" class=""><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab" aria-expanded="false">Passo 3</a></li>
+                                </ul>
+
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="home">
+                                        <section>
+										  <div class="demo-masked-input">
+											<div class="col-md-12">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtTitulo" type="text" class="form-control" placeholder="Nome da Caravana">
+													</div>
+												</div>
+											</div>
+										  </div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtDescricao" type="text" class="form-control" placeholder="Descrição da Caravana">
+													</div>
+												</div>
+											</div>
+										</section>
+
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="profile_settings">
+                                        <section>
+												<div class="col-md-12">
+													<div class="form-group">
+														<div class="form-line">
+															<input id="txtDescVeiculo" type="text" class="form-control" placeholder="Descrição do Veiculo">
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<p>
+														<b>Basic</b>
+													</p>
+													<select class="form-control show-tick">
+														<option>Mustard</option>
+														<option>Ketchup</option>
+														<option>Relish</option>
+													</select>
+
+												</div>
+												  <div class="col-md-3">
+													  <b>Data</b>
+													  <div class="input-group">
+														  <span class="input-group-addon">
+															  <i class="material-icons">date_range</i>
+														  </span>
+														  <div class="form-line">
+															  <input id="txtDataSaida" type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+														  </div>
+													  </div>
+												  </div>
+												  <div class="col-md-3">
+													  <b>Valor por pessoa</b>
+													  <div class="input-group">
+														  <span class="input-group-addon">
+															  <i class="material-icons">attach_money</i>
+														  </span>
+														  <div class="form-line">
+															  <input id="txtValorPorPessoa" type="text" class="form-control money-dollar" placeholder="Ex: 99,99 $">
+														  </div>
+													  </div>
+												  </div>
+										</section>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="change_password_settings">
+                                        <section>
+											<div class="col-md-3">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtCep" type="text" class="form-control" placeholder="CEP">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtEndereco" type="text" class="form-control" placeholder="Endereço">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-1">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtNumero" type="text" class="form-control" placeholder="Número">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtBairro" type="text" class="form-control" placeholder="Bairro">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtCidade" type="text" class="form-control" placeholder="Cidade">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-1">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtUf" type="text" class="form-control" placeholder="UF">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-2">
+												<div class="form-group">
+													<div class="form-line">
+														<input id="txtComplemento" type="text" class="form-control" placeholder="Complemento">
+													</div>
+												</div>
+											</div>
+										</section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<button type="button" class="btn btn-block btn-lg btn-success waves-effect">CADASTRAR</button>
+                    </div>
+                </div>		  
+	
+           </div>
+      <!-- #END# Masked Input -->
 
     </section>
 
@@ -218,8 +363,35 @@
     <!-- Jquery CountTo Plugin Js -->
     <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
+    <!-- JQuery Steps Plugin Js -->
+    <script src="plugins/jquery-steps/jquery.steps.js"></script>
+
     <!-- Sparkline Chart Plugin Js -->
     <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Jquery Validation Plugin Css -->
+    <script src="plugins/jquery-validation/jquery.validate.js"></script>
+
+    <!-- JQuery Steps Plugin Js -->
+    <script src="plugins/jquery-steps/jquery.steps.js"></script>
+
+    <!-- Sweet Alert Plugin Js -->
+    <script src="plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
@@ -228,16 +400,83 @@
     <!-- Demo Js -->
     <script src="js/demo.js"></script>
 
-	<script>
+	<script src="js/pages/script.js"></script>
 
-		function irPara(tela){
+    <script>
+        
+        $(function () {
+             carregarEventos();    
+        });
 
-			$(".clearfix").hide();
-			$("#div_"+ tela).show();
+        function irPara(tela){
 
-		}
+            $(".clearfix").hide();
+            $("#div_"+ tela).show();
 
-	</script>
+        }
+
+         function detalheEvento(idEvento){
+            $(".clearfix").hide();
+            $("#div_detalhes").show();
+
+            $.ajax({
+                type: "GET",
+                url: "https://querocaravanasapi.azurewebsites.net/api/Evento/" + idEvento,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                beforeSend: function () {
+                   //load
+                },
+                success: function (response) {           
+                    var d = response;
+                    $("#detNome").html(d.titulo);
+                    $("#detData").html(d.data);
+                },
+                failure: function (response) {            
+                    alert('fail');
+                },
+                error: function (response) {
+                     alert('error');
+                }
+            });
+
+        }
+
+        function carregarEventos() {
+            $.ajax({
+                type: "GET",
+                url: "https://querocaravanasapi.azurewebsites.net/api/Evento",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: {},
+                beforeSend: function () {
+                   //load
+                },
+                success: function (response) {           
+                    var d = response;
+                    var html = "";
+                    d.forEach(item => {
+                        html += `<div class="card">
+                                  <div class="body">
+                                    <b style="font-size:20px;">${item.titulo}</b><br>
+                                    ${item.descricao}<br><br>
+                                    <b>Data</b>: ${item.data}<br>
+                                    <button type="button" onclick="detalheEvento('${item.id}')" class="btn btn-block btn-lg btn-info waves-effect">VER</button>
+                                </div>
+                              </div>`;
+                    });
+                    $("#divEventos").html(html).show();
+                },
+                failure: function (response) {            
+                    alert('fail');
+                },
+                error: function (response) {
+                     alert('error');
+                }
+            });
+        }
+
+    </script>
 
 </body>
 
