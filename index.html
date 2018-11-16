@@ -30,6 +30,7 @@
 
     <!-- Custom Css -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
@@ -193,14 +194,32 @@
 			<!-- Detalhes -->
 			<div id="div_detalhes" class="row clearfix" style="display:none;">
 				<b id="detNome" style="font-size:25px; margin-bottom:25px;">BGS</b>
+                <br />
 				<p><b>Data</b>: <span id="detData">15/11/2018</span></p>
 				<p><b>Partida</b>: 07:00 - Parque Santos Dumont, São José dos Campos - SP </p>
 				<p><b>3 Caravanas - 90 lugares disponíveis</b></p>
 				<p><b>Valor:</b> R$30,00</p>
-				<br><br>
-				<button type="button" onclick="irPara('home')" class="btn btn-default waves-effect">Voltar</button>
+                <div style="margin-top:75%">
+                    <button type="button" onclick="irPara('reservar')" class="btn btn-block btn-lg btn-primary waves-effect">PARTICIPAR</button>
+                    <button type="button" onclick="irPara('home')" class="btn btn-default btn-block waves-effect">VOLTAR</button>
+                </div>                
 			</div>
-     
+
+            <!-- reserva -->
+            <div id="div_reservar" class="row clearfix" style="display:none;">
+                <b style="font-size:25px; margin-bottom:25px;">Número de lugares<br /> para reservar</b>
+                <div class="form-line" style="margin-top:15px;">
+                    <input type="number" id="txtValorLugar"  class="form-control text-center" value="1">
+                </div>
+                <div class="form-line" style="margin-top:15px;">
+                    <p>Total a pagar: <b>R$ <span id="spValorLugar">30</span></b></p>
+                </div>
+                <div style="margin-top:80%">
+                    <button type="button" onclick="confirmarLugar()" class="btn btn-block btn-lg btn-primary waves-effect">CONFIRMAR</button>
+                    <button type="button" onclick="irPara('detalhes')" class="btn btn-default btn-block waves-effect">VOLTAR</button>
+                </div>
+            </div>
+
       <!-- Masked Input -->
       <div id="div_caravana" class="row clearfix" style="display:none;">
           <b style="font-size:25px; margin-bottom:25px;">Cadastro Caravana</b>
@@ -395,6 +414,7 @@
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
+    <script src="js/sweetalert.min.js"></script>
     <script src="js/pages/index.js"></script>
 
     <!-- Demo Js -->
@@ -403,9 +423,23 @@
 	<script src="js/pages/script.js"></script>
 
     <script>
-        
+
+        var objEvento = {
+            id: "",
+            nome: "",
+            data: ""
+        }
+
         $(function () {
-             carregarEventos();    
+            carregarEventos();   
+
+            //calcula o valor do lugar
+            $("#txtValorLugar").change(function () {
+                var valor = $(this).val() * 30.00;
+                $("#spValorLugar").html(valor);
+
+            });
+
         });
 
         function irPara(tela){
@@ -416,9 +450,8 @@
         }
 
          function detalheEvento(idEvento){
-            $(".clearfix").hide();
-            $("#div_detalhes").show();
-
+            irPara('detalhes');
+           
             $.ajax({
                 type: "GET",
                 url: "https://querocaravanasapi.azurewebsites.net/api/Evento/" + idEvento,
@@ -429,8 +462,14 @@
                 },
                 success: function (response) {           
                     var d = response;
+
                     $("#detNome").html(d.titulo);
                     $("#detData").html(d.data);
+
+                    objEvento.id = d.id;
+                    objEvento.nome = d.titulo;
+                    objEvento.data = d.data;
+
                 },
                 failure: function (response) {            
                     alert('fail');
@@ -440,7 +479,28 @@
                 }
             });
 
-        }
+         }
+
+         function confirmarLugar() {
+
+             swal({
+                 title: "Bem vindo a bordo!",
+                 text: "Sua reserva foi realizada.",
+                 type: "success",
+                 showCancelButton: false,
+                 confirmButtonText: "Ok",
+                 cancelButtonText: "Não",
+                 closeOnConfirm: true,
+                 closeOnCancel: false
+             },
+                 function (isConfirm) {
+                     if (isConfirm) {
+                         irPara('home');
+                     }
+                 }
+             );
+             
+         }
 
         function carregarEventos() {
             $.ajax({
