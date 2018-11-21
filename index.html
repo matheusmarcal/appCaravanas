@@ -128,7 +128,7 @@
                     <li>
                         <a href="javascript:irPara('minha_caravana', true);" >
                             <i class="material-icons">confirmation_number</i>
-                            <span>Minhas Caravanas</span>
+                            <span>Gerenciar Caravanas</span>
                         </a>
                     </li>
                     <!--<li>
@@ -205,7 +205,7 @@
 				<p><b>Partida</b>: 07:00 - Parque Santos Dumont, São José dos Campos - SP </p>
 				<p><b>3 Caravanas - 90 lugares disponíveis</b></p>
 				<p><b>Valor:</b> R$30,00</p>
-                <div style="margin-top:75%">
+                <div style="margin-top:65%">
                     <button type="button" onclick="irPara('reservar')" class="btn btn-block btn-lg btn-primary waves-effect">PARTICIPAR</button>
                     <button type="button" onclick="irPara('home')" class="btn btn-default btn-block waves-effect">VOLTAR</button>
                 </div>                
@@ -221,7 +221,7 @@
                     <p>Total a pagar: <b>R$ <span id="spValorLugar">30</span></b></p>
                     <p>Pagar em dinheiro no local do embarque</p>
                 </div>
-                <div style="margin-top:70%">
+                <div style="margin-top:60%">
                     <button type="button" onclick="confirmarLugar()" class="btn btn-block btn-lg btn-primary waves-effect">CONFIRMAR</button>
                     <button type="button" onclick="irPara('detalhes')" class="btn btn-default btn-block waves-effect">VOLTAR</button>
                 </div>
@@ -244,78 +244,121 @@
                     </div>
             </div>
 
+             <!-- lista de participantes -->
+             <div id="div_lista_reservados" class="row clearfix" style="display:none;">
+                <b style="font-size:25px; margin-bottom:25px;">Lista de participantes</b>
+                <div id="divListaParticipantes" style="margin-top:15px;">
+                        <div class="card">
+                            <div>
+                                <div class="list-group">
+                                    <a href="javascript:void(0);" class="list-group-item">
+                                            <div class="row">
+                                                    <div class="col-xs-3">
+                                                            <img src="images/user.png" width="48" height="48" alt="User" />
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                            <h4 class="list-group-item-heading">Pedro</h4>
+                                                            <p class="list-group-item-text">
+                                                                3 lugares reservados
+                                                            </p>
+                                                    </div>
+                                            </div>
+                                        
+                                    </a>
+                                    <a href="javascript:void(0);" class="list-group-item">
+                                            <div class="row">
+                                                    <div class="col-xs-3">
+                                                            <img src="images/user.png" width="48" height="48" alt="User" />
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                            <h4 class="list-group-item-heading">João</h4>
+                                                            <p class="list-group-item-text">
+                                                                2 lugares reservados
+                                                            </p>
+                                                    </div>
+                                            </div>
+                                    </a>
+                                    <a href="javascript:void(0);" class="list-group-item">
+                                            <div class="row">
+                                                    <div class="col-xs-3">
+                                                            <img src="images/user.png" width="48" height="48" alt="User" />
+                                                    </div>
+                                                    <div class="col-xs-9">
+                                                            <h4 class="list-group-item-heading">Tiago</h4>
+                                                            <p class="list-group-item-text">
+                                                                5 lugares reservados
+                                                            </p>
+                                                    </div>
+                                            </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div style="margin-top:45%">
+                        <button type="button" onclick="irPara('minha_caravana')" class="btn btn-default btn-block waves-effect">VOLTAR</button>
+                </div>
+        </div>
+
+
             <!-- minha caravana -->
             <div id="div_minha_caravana" class="row clearfix" style="display:none;">
-                    <b style="font-size:25px; margin-bottom:25px;">Minhas caravanas</b>
-                    <div class="card">
-                            <div class="body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover dashboard-task-infos">
+                    <b style="font-size:25px; margin-bottom:25px;">Gerenciar Caravanas</b>
+                    <div class="table-responsive" style="margin-top: 15px;">
+                        <table class="table table-hover dashboard-task-infos" style="background-color: #fff;">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Task</th>
+                                                <th>Caravana</th>
                                                 <th>Status</th>
-                                                <th>Manager</th>
-                                                <th>Progress</th>
+                                                <th>Veículos</th>
+                                                <th>Lugares</th>
+                                                <th>Participantes</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Task A</td>
-                                                <td><span class="label bg-green">Doing</span></td>
-                                                <td>John Doe</td>
-                                                <td>
+                                    <td>BGS</td>
+                                    <td><span class="label bg-green">Aberto</span></td>
+                                    <td>3</td>
+                                    <td >
                                                     <div class="progress">
-                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
+                                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
                                                     </div>
+                                                </td>
+                                                <td>
+                                                    <button type="button" onclick="irPara('lista_reservados')" class="btn btn-info waves-effect">VER</button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Task B</td>
-                                                <td><span class="label bg-blue">To Do</span></td>
-                                                <td>John Doe</td>
+                                    <td>João Bosco & Vinicius </td>
+                                    <td><span class="label bg-blue">Aguardando</span></td>
+                                    <td>1</td>
                                                 <td>
                                                     <div class="progress">
                                                         <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
                                                     </div>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Task C</td>
-                                                <td><span class="label bg-light-blue">On Hold</span></td>
-                                                <td>John Doe</td>
                                                 <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Task D</td>
-                                                <td><span class="label bg-orange">Wait Approvel</span></td>
-                                                <td>John Doe</td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
-                                                    </div>
+                                                    <button type="button" onclick="irPara('lista_reservados')" class="btn btn-info waves-effect">VER</button>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>Task E</td>
+                                    <td>Palmeiras vs Boca Juniors</td>
                                                 <td>
-                                                    <span class="label bg-red">Suspended</span>
+                                        <span class="label bg-red">Finalizada</span>
                                                 </td>
-                                                <td>John Doe</td>
+                                    <td>1</td>
                                                 <td>
                                                     <div class="progress">
-                                                        <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
+                                            <div class="progress-bar bg-red" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
                                                     </div>
+                                                </td>
+                                                <td>
+                                                    <button type="button" onclick="irPara('lista_reservados')" class="btn btn-info waves-effect">VER</button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -471,11 +514,11 @@
 												</div>
 											</div>
 										</section>
+                                        <button type="button" class="btn btn-block btn-lg btn-success waves-effect">CADASTRAR</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-						<button type="button" class="btn btn-block btn-lg btn-success waves-effect">CADASTRAR</button>
                     </div>
                 </div>		  
 	
